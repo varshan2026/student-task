@@ -1,1 +1,1 @@
-# student-task
+Just completed a Student Entry Form that collects student data such as name, age, course, gender, and email, and displays it instantly in a table. Built using HTML, CSS, and JavaScript, this project highlights seamless form handling and a user-friendly interface, making it a practical tool for data management.
