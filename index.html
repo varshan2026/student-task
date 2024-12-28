@@ -1,0 +1,159 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- font style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Jost:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form Example</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+
+        <div class="student-form">
+            <div class="form-container">
+                <h2 class="form-title">Student Form</h2>
+
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="text" id="age" name="age" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio_group">
+                            <label for="male">
+                                <input type="radio" id="male" name="gender" value="Male" required> Male
+                            </label>
+                            <label for="female">
+                                <input type="radio" id="female" name="gender" value="Female"> Female
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Course</label>
+                        <select id="course" name="course" required>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="Java">Java</option>
+                            <option value="Python">Python</option>
+                            <option value="c++">C++</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="save-button" id="savebtn">Save</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table_data">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Gender</th>
+                            <th>Course</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Vijay</td>
+                            <td>25</td>
+                            <td>Male</td>
+                            <td>JavaScript</td>
+                            <td>vijay2026@gmail.com</td>
+                            <td><button class='delete-button' onclick='deleteRow(this)'>Delete <i class='fa-solid fa-trash'></i></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <script>
+            var name_input = document.getElementById('name');
+            var age_input = document.getElementById('age');
+            var email_input = document.getElementById('email');
+            var gender_inputs = document.querySelectorAll('input[name="gender"]');
+            var course_input = document.getElementById('course');
+            var tbody = document.querySelector('tbody');
+            var savebtn = document.getElementById('savebtn')
+
+            savebtn.addEventListener('click', function(){
+                var name = name_input.value;
+                var age = age_input.value;
+                var email = email_input.value;
+
+                for (var input of gender_inputs) {
+                    if (input.checked) {
+                        gender = input.value;
+                    }
+                }
+
+                var course = course_input.value;
+
+                var newrow = document.createElement('tr');
+                newrow.innerHTML = "<td>" + name + "</td>"+
+                    "<td>" + age + "</td>" +
+                    "<td>" + gender + "</td>" +
+                    "<td>" + course + "</td>" +
+                    "<td>" + email + "</td>" +
+                    "<td><button class='delete-button' onclick='deleteRow(this)'>Delete <i class='fa-solid fa-trash'></i></button></td>";
+                tbody.append(newrow);
+
+                name_input.value = '';
+                age_input.value = '';
+                email_input.value = '';
+                gender_inputs.forEach(input => input.checked = false);
+                course_input.selectedIndex = 0;
+
+            });
+
+            function deleteRow(button) {
+            var row = button.parentElement.parentElement;
+            tbody.removeChild(row);
+            }
+
+        </script>
+
+    </body>
+
+    </html>
+
+</body>
+
+</html>
