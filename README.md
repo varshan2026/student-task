@@ -8,4 +8,4 @@ Just completed a **Student Entry Form** that collects student data such as name,
 - User-friendly interface for seamless data entry.
 
 ## Check It
-Link: 
+Link: https://varshan2026.github.io/student-task/
